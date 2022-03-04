@@ -11,10 +11,23 @@ public class Exercise23 {
         // Expected Output:
         // red
         // orange
+        System.out.println(colors.substring(4, 10));
         // yellow
+        System.out.println(colors.substring(11, 17));
         // green
+        System.out.println(colors.substring(18, 23));
         // blue
+        System.out.println(colors.substring(24, 29));
         // indigo
+        System.out.println(colors.substring(30, 35));
         // violet
+        System.out.println(colors.substring(36, 42));
+
+
+
+
+
+
+
     }
 }

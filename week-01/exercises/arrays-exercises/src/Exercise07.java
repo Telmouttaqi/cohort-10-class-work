@@ -8,9 +8,18 @@ public class Exercise07 {
         // The makeRandomArray method returns an int[] of a length between 50 and 150, whose elements are randomly
         // generated between -500 and 500.
         // 1. Create a loop to calculate the sum of elements in `values`.
+        int sum =0;
+        for (int i = 0; i < values.length; i++) {
+            sum += values[i];
+            System.out.println(values[i]);
+        }
+
         // 2. Print the result.
+        System.out.println("Sum is : "+sum);
         // Since the array is random, your result will vary during each run.
         // 3. Print the length of the array.
+        int l = values.length;
+        System.out.println("Array length : "+l);
     }
 
     public static int[] makeRandomArray() {

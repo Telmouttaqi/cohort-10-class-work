@@ -7,7 +7,13 @@ public class Exercise07 {
     // Description: return true if the four parameters are in ascending order.
     // Otherwise, returns false.
 
+    public static boolean areInOrder (int a, int b , int c,int d){
+
+        return true;
+
+    }
+
     public static void main(String[] args) {
-        // 2. Call your method in various ways to test it here.
+        areInOrder(5,3,5,6);
     }
 }

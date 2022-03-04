@@ -10,6 +10,17 @@ public class Exercise10 {
         // 1. Count the number of beetles and mosquitoes.
         // 2. Print the result.
         // Results will vary because of randomness.
+        int countB =0;
+        int countM = 0;
+        for (int i = 0; i < bugs.length; i++) {
+            System.out.println(bugs[i]);
+            if (bugs[i] == "beetle") {
+                countB +=1;
+            }else {
+                countM+=1;
+            }
+        }
+        System.out.println("There are "+countB+" beetle and "+countM+" musquito!");
     }
 
     public static String[] makeBugArray() {

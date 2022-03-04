@@ -6,9 +6,15 @@ public class Exercise01 {
         System.out.println(firstCompliment);
 
         // Call the getRandomCompliment method two more times.
+        getRandomCompliment();
+
         // 1. Store the result in a new string variable.
+        String newString = getRandomCompliment();
         // 2. Print the result.
+        System.out.println(newString);
         // 3. Print the value returned directly without an intermediate variable.
+
+
     }
 
     public static String getRandomCompliment() {

@@ -7,6 +7,11 @@ public class Exercise13 {
     // Description: return true if the three parameters are in ascending order.
     // Otherwise, returns false.
     // (See Exercise07.)
+    public static boolean areInOrder(int a, int b , int c){
+
+        return false;
+    }
+
 
     // 2. Create a method.
     // Name: areContiguous
@@ -25,6 +30,11 @@ public class Exercise13 {
     // 7, 5, 6 -> false
     // 1, 0, 1 -> true
 
+    public static boolean areContiguous(int d,int f, int g){
+
+        return true;
+    }
+
     // 3. Create a method.
     // Name: isAscendingContiguous
     // Inputs: int, int, int
@@ -33,6 +43,11 @@ public class Exercise13 {
     // Otherwise, returns false.
     // Hint: call areInOrder and areContiguous. Neither method can guarantee the result alone, but together they solve
     // the problem.
+
+    public static boolean isAscendingContiguous(int n, int p, int s){
+
+            return false;
+    }
 
     public static void main(String[] args) {
         // 4. Uncomment the code below and confirm it works.

@@ -5,6 +5,16 @@ public class Exercise09 {
 
         // A needle is randomly placed in a haystack array with a capacity of 100.
         // 1. Loop through the haystack and find the needle.
+
+        for (int i = 0; i < haystack.length; i++) {
+            if (haystack[i] == "needle"){
+                System.out.println("I the word needle at the element "+ i);
+                break;
+
+            }
+
+        }
+
         // 2. Print the index where you found it.
         // Hint: this is an exercise about the default value of strings.
     }

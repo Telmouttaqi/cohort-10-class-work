@@ -10,6 +10,22 @@ public class Exercise15 {
         // 2. Copy elements from `one` into the beginning of the array.
         // 3. Copy elements from `two` at the end of the array.
         // 4. Print the results to confirm that it worked.
+
+        int [] oneNew = new int[1500];
+
+
+        for(int index =0 ; index < one.length; index++) {
+            System.out.println("this is variable one : "+one[index]);
+
+            for (int j = 0; j < two.length; j++) {
+
+                System.out.println("This is variable two : "+two[j]);
+
+            }
+        }
+
+
+
     }
 
     public static int[] makeRandomArray() {

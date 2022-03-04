@@ -14,9 +14,16 @@ public class Exercise04 {
         System.out.print("Increment: ");
         int increment = Integer.parseInt(console.nextLine());
 
+
         // 1. Write a loop that uses three values provided by a user to control the loop.
         // start - the starting value
         // end - controls the loop condition, the loop continues while the value is less than or equal to end
         // increment - the number to add after each loop
+
+        for (int i = start; i < end; i += increment) {
+
+            System.out.println(i);
+        }
+
     }
 }

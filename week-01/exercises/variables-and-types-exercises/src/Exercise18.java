@@ -8,6 +8,13 @@ public class Exercise18 {
 
         // 1. Print the variable values above with String labels. Use concatenation.
 
+        System.out.println("\n" +
+                " Gem Count: "+gemCount+
+                " \n "
+                +"Velocity: " + velocity +
+                " \n "
+                + "Is Shiny: " +isShiny);
+
         // Expected Output:
         // Gem Count: 12
         // Velocity: 33.654

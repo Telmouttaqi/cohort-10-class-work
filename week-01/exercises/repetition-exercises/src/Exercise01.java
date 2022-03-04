@@ -16,9 +16,10 @@ public class Exercise01 {
         // 8
         // 9
         // 10
+        // changed the index from 0 to 1
 
-        int index = 0;
-        while (index < 5) {
+        int index = 1;
+        while (index < 11) { // while the index less than the 11 it will print the numbers betweens 1 and 11.
             System.out.println(index);
             index++;
         }

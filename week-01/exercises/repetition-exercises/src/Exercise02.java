@@ -11,5 +11,14 @@ public class Exercise02 {
         // 8
         // 10
         // 12
+
+        // initial the i with number 2
+        // make the index less then 13
+
+        for (int i = 2; i < 13; i+=2) {
+            System.out.println(i);
+        }
+
+
     }
 }

@@ -21,6 +21,7 @@ public class Exercise16 {
            if oneIndex >= one.length, there are no `one` elements remaining so use elements from two
            if twoIndex >= two.length, there are no `two` elements remaining so use elements from one
           */
+        
     }
 
     public static int[] makeRandomAscendingArray() {

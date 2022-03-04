@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Exercise07 {
 
     public static void main(String[] args) {
+
         // REMOVE WHITESPACE
         Scanner console = new Scanner(System.in);
 
@@ -18,6 +19,8 @@ public class Exercise07 {
             result += phrase.charAt(i);
         }
 
-        System.out.println("Your phrase without whitespace is: " + result);
+        // To remove all white spaces from String
+
+        System.out.println("Your phrase without whitespace is: " + result.replaceAll("\\s", ""));
     }
 }

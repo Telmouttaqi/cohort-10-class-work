@@ -11,6 +11,10 @@ public class Exercise24 {
         // 2. Assign the result to a new variable.
         // 3. Print it.
 
+        String replace = knockKnock.replaceAll("a","o");
+
+        System.out.println(replace);
+
         // Expected Output:
         // Knock, knock.
         // Who's there?

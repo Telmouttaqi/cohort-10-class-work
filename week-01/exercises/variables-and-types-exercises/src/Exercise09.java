@@ -6,8 +6,17 @@ public class Exercise09 {
         double b = -4817.496614294316;
         double c = 46338.06248816222;
 
+        System.out.println("_____________________________________");
+
         // 1. Calculate the average of a, b, and c and store the value in a new variable.
+
+        double sum = a + b + c;
+
+        double average = sum / 3 ;
+
         // 2. Print the result.
+
+        System.out.println(average);
         // Expected value: 45041.03185 (give or take)
     }
 }
