@@ -1,3 +1,5 @@
+* Capsule Hotel
+
 # First part:
 
 - welcome to the hotel (greeting the user)
