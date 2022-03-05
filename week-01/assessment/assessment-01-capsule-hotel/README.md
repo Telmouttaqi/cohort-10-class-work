@@ -1,4 +1,4 @@
-* Capsule Hotel
+#Capsule Hotel:
 
 # First part:
 
