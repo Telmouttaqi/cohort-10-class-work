@@ -92,7 +92,8 @@ public class CapsuleHotel {
         System.out.print("Capsule #[1-" + capsules.length + "]: ");
         int index = Integer.parseInt(console.nextLine()) - 1;
 
-        while (capsules[index] != null) {
+        // Changed the while loop with if statement
+        if (capsules[index] != null) {
             System.out.println("Error :(\n" +
                     "Capsule #" + (index + 1) + " is occupied.");
             System.out.print("Capsule #[1-" + capsules.length + "]: ");
@@ -100,7 +101,8 @@ public class CapsuleHotel {
 
         }
 
-        while (capsules[index] == null) {
+        // Changed while loop with if statement
+        if (capsules[index] == null) {
             capsules[index] = guestName;
             System.out.println("Success :)\n" +
                     guestName + " is booked in capsule #" + (index + 1) + ".");

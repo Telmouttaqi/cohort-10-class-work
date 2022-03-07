@@ -12,8 +12,11 @@ public class Exercise03 {
 
         System.out.println(one.getName());
 
+
         // Expected Output
         // Frank Ocean
         // [Your Favorite Musician]
+        one.setName("Tawfik");
+        System.out.println(one.getName());
     }
 }

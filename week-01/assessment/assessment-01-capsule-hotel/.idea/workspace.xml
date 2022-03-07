@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9df2536-5080-4682-a4c9-1f0e1838e386" name="Changes" comment="" />
+    <list default="true" id="d9df2536-5080-4682-a4c9-1f0e1838e386" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../week-02/exercises/.idea/exercises.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../week-02/exercises/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../week-02/exercises/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Balloon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Hero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Power.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise02.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise03.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise04.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise05.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise05.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise07.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise07.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise08.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise08.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise09.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise09.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise10.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise10.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise12.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise12.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise14.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise14.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise15.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Exercise15.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Musician.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/exercises/object-exercises/src/Musician.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
