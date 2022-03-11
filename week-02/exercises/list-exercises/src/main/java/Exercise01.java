@@ -9,7 +9,12 @@ public class Exercise01 {
 
         ArrayList<BoardGame> games = GameRepository.getAll();
 
-        // 1. Grab the 6th game from `games` (index 5).
+        // 1. Grab the 6th game from `games` (index 5)
+
+        games.get(5);
+
         // 2. Print it to stdout. (Expected: "7 Wonders")
+
+        System.out.println(games.get(5));
     }
 }

@@ -9,7 +9,9 @@ public class Exercise05 {
         HashMap<String, Vehicle> vehicleMap = VehicleRepository.getMap();
 
         // 1. Instantiate a new HashMap<String, Vehicle>.
+        HashMap<String, Vehicle> vehicle = VehicleRepository.getMap();
         // 2. Add two vehicles to the new map.
+        //vehicle.put("Tawfik","Car");
         // 3. Add items from the new map to `vehicleMap` using the `putAll` method.
         // 4. Confirm the vehicles were added by retrieving on with its VIN and printing it to the console.
     }

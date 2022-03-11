@@ -1,5 +1,6 @@
 package learn.commerce;
 
+import javax.sound.sampled.Line;
 import java.util.Arrays;
 
 /**
@@ -27,6 +28,10 @@ public class Order {
     public double getTotal() {
         // 1. Complete the getTotal method.
         // It should calculate the order's grand total by summing totals from each LineItem.
+        double total = 0.0;
+        for (LineItem item : lineItems){
+        total +=
+        }
         return 0.0;
     }
 
@@ -45,4 +50,13 @@ public class Order {
     }
 
     // 2. Stretch goal: add a remove method that removes a LineItem by either index or reference.
+
+    public boolean removeLineItemByIndex(int index ){
+        LineItem[] items = new LineItem[lineItems.length -1];
+        for (int i = 0 ; i < lineItems.length; i++){
+            if (i != index){
+                items[newIte]
+            }
+        }
+    }
 }

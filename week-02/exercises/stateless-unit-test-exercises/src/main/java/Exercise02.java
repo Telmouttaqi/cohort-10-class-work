@@ -20,6 +20,18 @@ public class Exercise02 {
      * @return string in the form: <tagName>text</tagName>
      */
     static String surroundWithTag(String text, String tagName) {
-        return null;
+
+        String r;
+
+
+        if (tagName == null){
+             r = text;
+        }else {
+
+             r = "<"+tagName+">"+text+"</"+tagName+">";
+        }
+
+
+        return r;
     }
 }

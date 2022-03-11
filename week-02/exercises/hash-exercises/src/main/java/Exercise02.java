@@ -9,6 +9,10 @@ public class Exercise02 {
         HashMap<String, Vehicle> vehicleMap = VehicleRepository.getMap();
 
         // 1. Retrieve the vehicle with the VIN: 1M8GDM9AXKP042788 from `vehicleMap`. Store the vehicle in a variable.
+
+        Vehicle v = vehicleMap.get("1M8GDM9AXKP042788");
         // 2. Print it to stdout. Confirm it's `null`. (The key does not exist in the map.)
+        System.out.println(v);
+        // Null
     }
 }
