@@ -1,3 +1,25 @@
+* # Project Gomoku
+   * Steps:
+- Display the menu includes two options [ 1 - 2 ].
+- ask the user to pick one of the options available
+- Human or Random
+- if Human : Ask the user of the name.
+- if Random Player under the class Random Player there is a method will determine a random name
+- print : (Randomizing)
+- Program will randomly pick the first player
+- first player should have the black Stone
+- ask the user for the location (row and column)
+- if the location already use display invalid until is a valid location.
+- For Random player will display all the move no need to enter the location
+- Random Player use generateMove method.
+- print the board after each successfully move
+- Check after each move if one of the player 1 or player two won
+- if won print the name of the player and  "Wins!"
+- if not, continue to next player move.
+- at the end of the game ask the user if would play again
+- if yes start again
+- if not end the game
+
 How to Plan for the Gomoku Assessment
 * Detailed planning process
 * 1- Human or Random
@@ -100,24 +122,3 @@ How to Plan for the Gomoku Assessment
     * When you get stuck (or tired of working on something), 
     * move onto another task 
     * (allow you brain to background process what you're currently stuck on)
-* # Project Gomoku
--Steps:
-- Display the menu includes two options [ 1 - 2 ].
-- ask the user to pick one of the options available
-- Human or Random
-- if Human : Ask the user of the name.
-- if Random Player under the class Random Player there is a method will determine a random name
-- print : (Randomizing)
-- Program will randomly pick the first player 
-- first player should have the black Stone
-- ask the user for the location (row and column)
-- if the location already use display invalid until is a valid location.
-- For Random player will display all the move no need to enter the location
-- Random Player use generateMove method.
-- print the board after each successfully move
-- Check after each move if one of the player 1 or player two won
-- if won print the name of the player and  "Wins!"
-- if not, continue to next player move.
-- at the end of the game ask the user if would play again 
-- if yes start again 
-- if not end the game
