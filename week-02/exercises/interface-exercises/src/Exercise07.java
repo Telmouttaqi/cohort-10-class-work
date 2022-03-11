@@ -37,11 +37,13 @@ public class Exercise07 {
         System.out.println("3. Vault");
         System.out.println("4. Bank Account");
 
+
         String input;
         do {
             System.out.print("Select [1-4]:");
             input = console.nextLine();
         } while (!(input.length() == 1 && input.charAt(0) >= '1' && input.charAt(0) <= '4'));
+
 
         // 1. Add a switch statement to handle options 1 - 4.
         // 2. For each option, create a method that returns a MoneyStorage of the appropriate type:
@@ -53,16 +55,50 @@ public class Exercise07 {
         // - for Vault?
 
         // 3. Return the Wallet, Mortgage, Vault, or Bank Account instead of null.
-        return null;
+
+        MoneyStorage temp;
+        double balance = 0.0;
+        String desc = "";
+        System.out.println("How much should it start with ?");
+        balance = Double.parseDouble(console.nextLine());
+        System.out.println("What is the description");
+        desc = console.nextLine();
+
+        switch (Integer.parseInt(input)) {
+            case 1:
+                temp = new Wallet(balance,desc);
+                break;
+
+            case 2:
+
+                temp = new Mortgage(balance,desc);
+                break;
+            case 3:
+
+                temp = new Vault(balance,desc);
+                break;
+            case 4:
+                System.out.println("Bank Account");
+                temp = new BankAccount(balance,desc);
+            default:
+                temp = new Wallet(0.0,"");
+        }
+
+        return temp;
     }
 
+
     static void print(MoneyStorage storage) {
+        System.out.println();
         System.out.println();
         System.out.println(storage.getDescription());
         System.out.println("=".repeat(storage.getDescription().length()));
         System.out.printf("Current balance: $%.2f%n", storage.getBalance());
         System.out.println();
     }
+
+
+
 
     static void makeDeposit(MoneyStorage storage) {
         System.out.print("Amount to deposit:");

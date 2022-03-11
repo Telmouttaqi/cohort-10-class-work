@@ -7,6 +7,9 @@ public class Exercise10 {
         Scanner console = new Scanner(System.in);
 
         // 1. Instantiate three balloons of different colors.
+        Balloon one = new Balloon("White");
+        Balloon two = new Balloon("Yellow");
+        Balloon three = new Balloon("Orange");
 
         do {
 

@@ -1,6 +1,8 @@
 public class Exercise02 {
 
 
+
+
     // 1. Create a method.
     // Name: printAll
     // Inputs: MoneyStorage[]
@@ -10,13 +12,16 @@ public class Exercise02 {
     public static void main(String[] args) {
         MoneyStorage[] storages = {
                 new Wallet(3.25, "Red Wallet"),
-                new Mortgage(320000, "1234-dfdf-8790-trtr")
+                new Mortgage(320000, "1234-dfdf-8790-trtr"),
                 // 2. Declare a third MoneyStorage here.
+                new Wallet(7500,"El Mouttaqi")
         };
 
         depositInAll(storages, 100.00);
 
         // 3. Pass storages as an argument to printAll.
+
+        printAll(storages);
 
         // Sample Output
         // Red Wallet: 103.25
@@ -30,5 +35,19 @@ public class Exercise02 {
             storage.deposit(amount);
         }
     }
+
+    // 1. Create a method.
+    // Name: printAll
+    // Inputs: MoneyStorage[]
+    // Output: void
+    // Description: prints the details for each MoneyStorage in the array.
+
+
+    public static void printAll(MoneyStorage[] x)
+    {
+
+
+    }
+
 
 }
