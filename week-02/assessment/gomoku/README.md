@@ -8,9 +8,11 @@
 - print : (Randomizing)
 - Program will randomly pick the first player
 - first player should have the black Stone
-- ask the user for the location (row and column)
+- check if player return == null its human Player
+- ask the Human Player for the location (row and column)
+- else 
+- Random player will display all the move no need to enter the location
 - if the location already use display invalid until is a valid location.
-- For Random player will display all the move no need to enter the location
 - Random Player use generateMove method.
 - print the board after each successfully move
 - Check after each move if one of the player 1 or player two won
@@ -20,7 +22,7 @@
 - if yes start again
 - if not end the game
 
-How to Plan for the Gomoku Assessment
+How to Plan for the Gomoku Assessmentg
 * Detailed planning process
 * 1- Human or Random
     * Review the game rules (you don't have to implement the rules for the game but it helps to understand how the basic mechanics of the game works)

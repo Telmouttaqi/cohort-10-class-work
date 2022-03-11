@@ -7,8 +7,7 @@ public class Result {
     private final boolean success;
     private final String message;
 
-    public Result(String message) {
-        this(message, false);
+    public Result(String message) {this(message, false);
     } // This construcor si used for sucessfull
 
     public Result(String message, boolean success) {
