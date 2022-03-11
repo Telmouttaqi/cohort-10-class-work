@@ -9,7 +9,7 @@ public class Result {
 
     public Result(String message) {
         this(message, false);
-    }
+    } // This construcor si used for sucessfull
 
     public Result(String message, boolean success) {
         this.message = message;

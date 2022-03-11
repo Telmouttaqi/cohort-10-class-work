@@ -49,7 +49,7 @@ public class Gomoku {
             current = playerTwo;
         }
     }
-
+    // this method
     public Result place(Stone stone) {
 
         if (isOver()) {
