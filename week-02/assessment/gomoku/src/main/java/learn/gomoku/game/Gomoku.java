@@ -49,7 +49,7 @@ public class Gomoku {
             current = playerTwo;
         }
     }
-    // this method
+
     public Result place(Stone stone) {
 
         if (isOver()) {
@@ -88,6 +88,7 @@ public class Gomoku {
     }
 
     public void swap() {
+        // if player one is true ? player two is returned else player returned
         current = current == playerOne ? playerTwo : playerOne;
     }
 

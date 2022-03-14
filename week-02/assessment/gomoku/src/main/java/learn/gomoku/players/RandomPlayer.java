@@ -40,12 +40,12 @@ public class RandomPlayer implements Player {
 
     @Override
     public Stone generateMove(List<Stone> previousMoves) {
+
         boolean isBlack = true;
         if (previousMoves != null && !previousMoves.isEmpty()) {
             Stone lastMove = previousMoves.get(previousMoves.size() - 1);
             isBlack = !lastMove.isBlack();
         }
-
 
         return new Stone(
                 random.nextInt(Gomoku.WIDTH),
