@@ -1,5 +1,6 @@
 package learn.gomoku;
 import learn.gomoku.game.Gomoku;
+import learn.gomoku.game.Result;
 import learn.gomoku.game.Stone;
 import learn.gomoku.players.HumanPlayer;
 import learn.gomoku.players.Player;
@@ -94,33 +95,42 @@ public class UiGomoku {
     public static void playerTurn(Gomoku game, Player currentPlayer) {
         Scanner console = new Scanner(System.in);
         System.out.println(currentPlayer.getName() + "'s Turn");
+
         Stone stone = currentPlayer.generateMove(game.getStones());
         int row;
         int column;
         boolean human = stone == null;
-        System.out.println("Enter Row: ");
+
+
         if (human) {
+            System.out.println("Enter Row: ");
             row = console.nextInt() - 1;
-
-        } else {
-            row = stone.getRow() - 1;
-            System.out.println(row);
-        }
-        System.out.println("Enter Column: ");
-        if (human) {
+            System.out.println("Enter Column: ");
             column = console.nextInt() - 1;
-
-        } else {
-            column = stone.getColumn() - 1;
-            System.out.println(column);
+            stone = new Stone(row,column, game.isBlacksTurn());
         }
 
-
-
+        Result result;
+        result = game.place(stone);
+        System.out.println(result);
     }
 
     // void method display exit game.
     public static void endGame() {
         System.out.println("Exiting..");
+    }
+
+    // boolean method playAgain method
+    // ask if the user want to play again
+    public static boolean playAgain() {
+        Scanner console = new Scanner(System.in);
+        System.out.println("");
+        System.out.println("Play Again [Y/N]?: ");
+        String playAgainInput = console.nextLine().toLowerCase(Locale.ROOT);
+        if (playAgainInput.equals("y")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
