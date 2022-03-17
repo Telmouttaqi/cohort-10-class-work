@@ -20,4 +20,7 @@ public class EncounterRepositoryDouble implements EncounterRepository {
     public boolean deleteById(int encounterId) throws DataAccessException {
         return false;
     }
+
+
+
 }
