@@ -38,7 +38,8 @@ public class Controller {
                 case EXIT:
                     break;
                 case DISPLAY_ORBITERS:
-                    displayPanelsBySection();
+                    displayAllPanels();
+                    //displayPanelsBySection();
                     break;
                 case CREATE_ORBITERS:
                     addPanel();

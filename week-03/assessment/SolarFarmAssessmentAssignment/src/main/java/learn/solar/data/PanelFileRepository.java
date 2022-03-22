@@ -31,10 +31,10 @@ public class PanelFileRepository implements PanelRepository{
                     panel.setColumn(Integer.parseInt(fields[3]));
                     panel.setYear(Integer.parseInt(fields[4]));
                     panel.setType(Material.valueOf(fields[5]));
-                    if(fields[6].equalsIgnoreCase("true")){
-                        panel.setIsTracking("yes"); // com true
+                    if(fields[6].equalsIgnoreCase("yes")){
+                        panel.setIsTracking("yes"); //
                     }else{
-                        panel.setIsTracking("no"); // com false
+                        panel.setIsTracking("no"); //
                     }
                     result.add(panel);
                 }

@@ -80,7 +80,8 @@ public class View {
                         p.isTracking()); */
 
 
-                System.out.printf("%-12d%-12s%-12d%-12d%-12d%-30s%-20s\n",p.getPanelId(), p.getSection(), p.getRow(), p.getColumn(), p.getYear(), p.getType().label, p.getIsTracking());
+                System.out.printf("%-12d%-12s%-12d%-12d%-12d%-30s%-20s\n",p.getPanelId(), p.getSection(), p.getRow(),
+                        p.getColumn(), p.getYear(), p.getType().label, p.getIsTracking());
             }
         }
     }
@@ -102,7 +103,7 @@ public class View {
         panel.setColumn(readInt("Column: ", 1, 250));
         panel.setYear(readInt("Installation Year: ", 1890, 2021));
         panel.setType(printMaterialsAndSelect());
-        panel.setIsTracking(String.valueOf(readBoolean("Tracked [y/n] ")));
+        panel.setIsTracking(readString("Tracked [yes/no]"));
         System.out.println();
         return panel;
     }
@@ -119,16 +120,21 @@ public class View {
         if (year.trim().length() > 0) {
             panel.setYear(Integer.parseInt(year));
         }
-        String isTracking = readString("Tracked (" + panel.getIsTracking() + "): ");
-        if (isTracking.trim().length() > 0) {
-            if (isTracking.equalsIgnoreCase("true")) {
-                panel.setIsTracking("yes");// com true
-            } else {
-                panel.setIsTracking("no");// com false
+        String isTracking = readString("Tracked (" + panel.getIsTracking() + "): [y/n] ");
+        if(isTracking.equals("y")){
+            panel.setIsTracking("Yes");
+        }else{
+            panel.setIsTracking("No");
+        }
+        /*if (isTracking.trim().length() > 0) {
+            if (isTracking.equalsIgnoreCase("y")) {
+                panel.setIsTracking("Yes");//
+            } else if (isTracking.equalsIgnoreCase("n")) {
+                panel.setIsTracking("No");//
 
             }
-        }
-        System.out.println();
+        }*/
+
         return panel;
     }
 
@@ -149,8 +155,7 @@ public class View {
     }
 
 
-    // I considered breaking this up into two separate methods but I think this works just fine
-    // TODO mention this
+
     private Material printMaterialsAndSelect() {
         System.out.println("Material Selection:");
         Material[] materials = Material.values();

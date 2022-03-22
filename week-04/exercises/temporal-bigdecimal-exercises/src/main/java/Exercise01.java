@@ -10,23 +10,27 @@ public class Exercise01 {
 
     // 1. return today's date
     LocalDate getToday() {
-        return null;
+        return LocalDate.now();
     }
 
     // 2. return December 17, 1903 as a LocalDate
     LocalDate getFirstFlightDate() {
-        return null;
+        return LocalDate.of(1903,12,17);
     }
 
     // 3. if parameter is in the future, return null.
     // Otherwise, add 5 days to the parameter and return the result.
     LocalDate makeFutureNullShiftThePast(LocalDate date) {
-        return null;
+
+        return getFirstFlightDate().plusDays(5);
     }
+
+
 
     // 4. return the fifth Friday from the parameter date.
     // if the date is Friday, don't count it.
     LocalDate fiveFridaysFromDate(LocalDate date) {
+
         return null;
     }
 
