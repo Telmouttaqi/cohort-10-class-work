@@ -2,13 +2,23 @@ package learn.solar.ui;
 import learn.solar.domain.PanelResult;
 import learn.solar.models.Material;
 import learn.solar.models.Panel;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+@Component
 public class View {
 
+    private final TextIO io;
+
     private final Scanner console = new Scanner(System.in);
+
+    public View(TextIO io) {
+        this.io = io;
+    }
 
 
     public MenuOption displayMenuAndSelect() {
@@ -17,7 +27,7 @@ public class View {
         for (int i = 0; i < values.length; i++) {
             System.out.printf("%s. %s%n", i, values[i].getTitle());
         }
-        int index = readInt("Select [ 0-4 ]:  ", 0, 4);
+        int index = io.readInt("Select [ 0-4 ]:  ", 0, 4);
         return values[index];
     }
 
@@ -31,7 +41,7 @@ public class View {
             }
         }
         displaySections(sections);
-        return sections.get(readInt("Choose a Section [1-" + sections.size() + "]: ", 1, sections.size()) - 1);
+        return sections.get(io.readInt("Choose a Section [1-" + sections.size() + "]: ", 1, sections.size()) - 1);
     }
 
     private void displaySections(List<String> sections) {
@@ -91,19 +101,19 @@ public class View {
 
         System.out.println();
         System.out.println();
-        return readInt("Can you please enter the Panel Id you would like to delete.");
+        return io.readInt("Can you please enter the Panel Id you would like to delete.");
     }
 
     public Panel createPanel() {
         Panel panel = new Panel();
         System.out.println("");
         System.out.println();
-        panel.setSection(readRequiredString("Section: "));
-        panel.setRow(readInt("Row: ", 1, 250));
-        panel.setColumn(readInt("Column: ", 1, 250));
-        panel.setYear(readInt("Installation Year: ", 1890, 2021));
+        panel.setSection(io.readRequiredString("Section: "));
+        panel.setRow(io.readInt("Row: ", 1, 250));
+        panel.setColumn(io.readInt("Column: ", 1, 250));
+        panel.setYear(io.readInt("Installation Year: ", 1890, 2021));
         panel.setType(printMaterialsAndSelect());
-        panel.setIsTracking(readString("Tracked [yes/no]"));
+        panel.setIsTracking(io.readString("Tracked [yes/no]"));
         System.out.println();
         return panel;
     }
@@ -116,11 +126,11 @@ public class View {
         System.out.println("Material : " + panel.getType());
         Material type = printMaterialsAndSelect();
         panel.setType(type);
-        String year = readString("Installation Year (" + panel.getYear() + ") : ");
+        String year = io.readString("Installation Year (" + panel.getYear() + ") : ");
         if (year.trim().length() > 0) {
             panel.setYear(Integer.parseInt(year));
         }
-        String isTracking = readString("Tracked (" + panel.getIsTracking() + "): [y/n] ");
+        String isTracking = io.readString("Tracked (" + panel.getIsTracking() + "): [y/n] ");
         if(isTracking.equals("y")){
             panel.setIsTracking("Yes");
         }else{
@@ -144,7 +154,7 @@ public class View {
             return null;
         }
         System.out.println();
-        int panelId = readInt("Enter ID of Panel You Wish To Update: ");
+        int panelId = io.readInt("Enter ID of Panel You Wish To Update: ");
         for (Panel p : panels) {
             if (p.getPanelId() == panelId) {
                 return update(p);
@@ -163,7 +173,7 @@ public class View {
         for (int i = 0; i < materials.length; i++) {
             System.out.println((i + 1) + ". " + materials[i]);
         }
-        int choice = readInt("Choose Material [1-5]: ", 1, 5);
+        int choice = io.readInt("Choose Material [1-5]: ", 1, 5);
         switch (choice) {
             case 1:
                 result = Material.MULTICRYSTALLINE_SILICON;
@@ -185,66 +195,9 @@ public class View {
     }
 
 
-    private boolean readBoolean(String prompt) {
-        String choice = "";
-        do {
-            choice = readString(prompt);
-            if (!choice.equalsIgnoreCase("y") && !choice.equalsIgnoreCase("n")) {
-                System.out.println("Invalid input. Please enter \"y\" or \"n\".");
-            }
 
-        } while (!choice.equalsIgnoreCase("y") && !choice.equalsIgnoreCase("n"));
-        if (choice.equalsIgnoreCase("y")) {
 
-            return true;
 
-        } else {
-
-            return false;
-
-        }
-    }
-
-    private int readInt(String prompt, int min, int max) {
-        int result = 0;
-        do {
-            result = readInt(prompt);
-            if (result < min || result > max) {
-                System.out.println("Value must be between " + min + " and " + max);
-            }
-        } while (result < min || result > max);
-        return result;
-    }
-
-    private int readInt(String prompt) {
-        int result = 0;
-        boolean isValid = false;
-        while (!isValid) {
-            try {
-                result = Integer.parseInt(readRequiredString(prompt));
-                isValid = true;
-            } catch (NumberFormatException ex) {
-                System.out.println("Value must be a number. ");
-            }
-        }
-        return result;
-    }
-
-    private String readString(String prompt) {
-        System.out.print(prompt);
-        return console.nextLine();
-    }
-
-    private String readRequiredString(String prompt) {
-        String result = null;
-        do {
-            result = readString(prompt).trim();
-            if (result.isEmpty()) {
-                System.out.println("Value is required, sorry. ");
-            }
-        } while (result.length() == 0);
-        return result;
-    }
 
 }
 

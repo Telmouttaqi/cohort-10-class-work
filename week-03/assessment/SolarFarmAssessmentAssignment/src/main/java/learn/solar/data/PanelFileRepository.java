@@ -2,16 +2,21 @@ package learn.solar.data;
 
 import learn.solar.models.Material;
 import learn.solar.models.Panel;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//@Repository
 public class PanelFileRepository implements PanelRepository{
 
     private final String filePath;
     private static final String HEADER ="panel_id,section,row,col,year,material,isTracking";
-    public PanelFileRepository(String filePath) {
+
+
+    public PanelFileRepository(@Value("./data/solarPanel.csv") String filePath) {
         this.filePath = filePath;
     }
 

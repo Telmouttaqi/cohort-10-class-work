@@ -4,15 +4,20 @@ import learn.solar.data.DataException;
 import learn.solar.domain.PanelResult;
 import learn.solar.domain.PanelService;
 import learn.solar.models.Panel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+//@Component
 public class Controller {
 
 
-    private View view;
+    private final View view;
+    //@Autowired
     private final PanelService service;
 
+    //@Autowired
     public Controller(View view, PanelService service) {
         this.view = view;
         this.service = service;

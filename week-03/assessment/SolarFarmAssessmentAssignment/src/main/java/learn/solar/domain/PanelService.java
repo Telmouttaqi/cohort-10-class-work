@@ -3,9 +3,11 @@ package learn.solar.domain;
 import learn.solar.data.DataException;
 import learn.solar.data.PanelRepository;
 import learn.solar.models.Panel;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PanelService {
 
     private final PanelRepository repository;

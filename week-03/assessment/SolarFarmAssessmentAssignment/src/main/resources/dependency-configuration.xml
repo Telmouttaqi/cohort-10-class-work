@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    TextIO io = new ConsoleIO();
+        View view = new View(io);
+
+        PanelFileRepository repository = new PanelFileRepository("./data/solarpanel.csv");
+        PanelService service = new PanelService(repository);
+
+        Controller controller = new Controller(view,service);
+        controller.run();
+-->
+
+    <bean id="io" class="learn.solar.ui.ConsoleIO"/>
+
+    <bean id ="view" class="learn.solar.ui.View">
+        <constructor-arg ref="io"/>
+    </bean>
+
+    <bean id="repository" class="learn.solar.data.PanelFileRepository">
+        <constructor-arg value="./data/solarpanel.csv"/>
+    </bean>
+
+    <bean id = "service" class="learn.solar.domain.PanelService">
+        <constructor-arg ref="repository"/>
+    </bean>
+
+    <bean id = "controller" class="learn.solar.ui.Controller">
+        <constructor-arg ref="view"/>
+        <constructor-arg ref="service"/>
+    </bean>
+
+
+
+
+
+
+
+
+</beans>
+
