@@ -22,7 +22,7 @@ The application user is an accommodation administrator. They pair guests to host
 * is required to uniquely identify a reservation.
 
 ## Three layer architecture.
-#Data 
+##Data
 
 [ ] DataException
 [ ] GuestFileRepository
