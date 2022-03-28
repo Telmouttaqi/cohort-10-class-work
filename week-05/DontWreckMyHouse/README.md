@@ -122,11 +122,7 @@ from the ReservationRepository class.
     controller, but don't forget to remove them when development is complete.
     Determine the correct sequence for service calls and view calls.
 
-* implement the menu
-* implement the "view by section" feature
-* implement the "add panel" feature
-* implement the "update panel" feature
-* implement the "delete panel" feature
+
 
 ## Controller Perspectives
 
