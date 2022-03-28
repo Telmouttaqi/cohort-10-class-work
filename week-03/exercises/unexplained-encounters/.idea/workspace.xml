@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3b0ac30d-0bcc-4167-a3c5-81607d9a30bf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../enum-exercises/src/main/java/learn/cards/Rank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../enum-exercises/src/main/java/learn/cards/Suit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/assessment/gomoku/src/main/java/learn/gomoku/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/assessment/gomoku/src/main/java/learn/gomoku/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/assessment/gomoku/src/main/java/learn/gomoku/UiGomoku.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/assessment/gomoku/src/main/java/learn/gomoku/UiGomoku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week-02/assessment/gomoku/src/main/java/learn/gomoku/gameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week-02/assessment/gomoku/src/main/java/learn/gomoku/gameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/unexplained/data/EncounterFileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/unexplained/data/EncounterFileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/unexplained/data/EncounterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/unexplained/data/EncounterRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/learn/unexplained/data/EncounterRepositoryDouble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/unexplained/data/EncounterRepositoryDouble.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="26U04Bbcax1AJNX33OxZDm20r1U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b0ac30d-0bcc-4167-a3c5-81607d9a30bf" name="Changes" comment="" />
+      <created>1647462670610</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647462670610</updated>
+    </task>
+    <servers />
+  </component>
+</project>
