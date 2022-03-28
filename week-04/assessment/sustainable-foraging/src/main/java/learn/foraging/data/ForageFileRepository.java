@@ -1,33 +1,33 @@
 package learn.foraging.data;
-
 import learn.foraging.models.Forage;
 import learn.foraging.models.Forager;
 import learn.foraging.models.Item;
-
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 import java.io.*;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
+
 public class ForageFileRepository implements ForageRepository {
 
     private static final String HEADER = "id,forager_id,item_id,kg";
     private final String directory;
 
-    public ForageFileRepository(String directory) {
+    public ForageFileRepository(@Value("${forageData.location}") String directory) {
         this.directory = directory;
     }
+
 
     @Override
     public List<Forage> findByDate(LocalDate date) {
         ArrayList<Forage> result = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(getFilePath(date)))) {
-
             reader.readLine(); // read header
-
             for (String line = reader.readLine(); line != null; line = reader.readLine()) {
-
                 String[] fields = line.split(",", -1);
                 if (fields.length == 4) {
                     result.add(deserialize(fields, date));
@@ -61,15 +61,14 @@ public class ForageFileRepository implements ForageRepository {
         return false;
     }
 
+
     private String getFilePath(LocalDate date) {
         return Paths.get(directory, date + ".csv").toString();
     }
 
     private void writeAll(List<Forage> forages, LocalDate date) throws DataException {
         try (PrintWriter writer = new PrintWriter(getFilePath(date))) {
-
             writer.println(HEADER);
-
             for (Forage item : forages) {
                 writer.println(serialize(item));
             }

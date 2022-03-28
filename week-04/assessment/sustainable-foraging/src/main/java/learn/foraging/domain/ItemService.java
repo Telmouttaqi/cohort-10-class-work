@@ -1,21 +1,30 @@
 package learn.foraging.domain;
-
 import learn.foraging.data.DataException;
+import learn.foraging.data.ForageRepository;
 import learn.foraging.data.ItemRepository;
 import learn.foraging.models.Category;
 import learn.foraging.models.Item;
-
+import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ItemService {
 
     private final ItemRepository repository;
 
+
     public ItemService(ItemRepository repository) {
         this.repository = repository;
+
+
     }
+
+    public List<Item> findAll(){
+        return repository.findAll();
+    }
+
 
     public List<Item> findByCategory(Category category) {
         return repository.findAll().stream()
@@ -30,6 +39,13 @@ public class ItemService {
             result.addErrorMessage("Item must not be null.");
             return result;
         }
+
+
+        // validation
+        if (item.getCategory() == null) {
+            result.addErrorMessage("Category required.");
+        }
+
 
         if (item.getName() == null || item.getName().isBlank()) {
             result.addErrorMessage("Item name is required.");
@@ -53,4 +69,7 @@ public class ItemService {
 
         return result;
     }
+
+
+
 }

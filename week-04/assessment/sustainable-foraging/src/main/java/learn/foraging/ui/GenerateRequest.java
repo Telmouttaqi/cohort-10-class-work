@@ -1,7 +1,11 @@
 package learn.foraging.ui;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 
+
+@Component
 public class GenerateRequest {
 
     private LocalDate start;

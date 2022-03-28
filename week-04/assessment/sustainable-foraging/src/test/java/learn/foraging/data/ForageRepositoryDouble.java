@@ -23,6 +23,8 @@ public class ForageRepositoryDouble implements ForageRepository {
         forages.add(forage);
     }
 
+
+
     @Override
     public List<Forage> findByDate(LocalDate date) {
         return forages.stream()
@@ -41,4 +43,6 @@ public class ForageRepositoryDouble implements ForageRepository {
     public boolean update(Forage forage) throws DataException {
         return false;
     }
+
+
 }

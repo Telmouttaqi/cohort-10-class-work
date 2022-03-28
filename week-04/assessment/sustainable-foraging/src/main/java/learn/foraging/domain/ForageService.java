@@ -4,17 +4,18 @@ import learn.foraging.data.DataException;
 import learn.foraging.data.ForageRepository;
 import learn.foraging.data.ForagerRepository;
 import learn.foraging.data.ItemRepository;
+import learn.foraging.models.Category;
 import learn.foraging.models.Forage;
 import learn.foraging.models.Forager;
 import learn.foraging.models.Item;
+import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
+@Service
 public class ForageService {
 
     private final ForageRepository forageRepository;
@@ -26,6 +27,8 @@ public class ForageService {
         this.foragerRepository = foragerRepository;
         this.itemRepository = itemRepository;
     }
+
+
 
     public List<Forage> findByDate(LocalDate date) {
 
@@ -42,6 +45,8 @@ public class ForageService {
 
         return result;
     }
+
+
 
     public Result<Forage> add(Forage forage) throws DataException {
         Result<Forage> result = validate(forage);
@@ -98,6 +103,13 @@ public class ForageService {
 
         validateChildrenExist(forage, result);
 
+        checkDuplicateForage(forage,result);
+        if (!result.isSuccess()){
+            return result;
+        }
+
+
+
         return result;
     }
 
@@ -145,4 +157,48 @@ public class ForageService {
             result.addErrorMessage("Item does not exist.");
         }
     }
+
+    private void checkDuplicateForage(Forage forage, Result<Forage> result){
+
+        if(forageRepository.findByDate(forage.getDate()).stream()
+                .filter(f -> f.getForager().getId().equals(forage.getForager().getId()))
+                .anyMatch(f -> f.getItem().getId() == forage.getItem().getId())) {
+            result.addErrorMessage("The combination of date, Item, and Forager cannot be duplicated");
+        }
+    }
+
+
+    public Map<Item, Double> reportKgOfEachItemOnDay(LocalDate date) {
+        List<Forage> forages = findByDate(date);
+        return forages.stream()
+                .collect(Collectors.groupingBy(
+                        Forage::getItem,
+                        Collectors.summingDouble(Forage::getKilograms)));
+    }
+
+
+
+
+
+
+
+    public Map<Category, BigDecimal> categoryValueReport(LocalDate date) {
+       /* List<Forage> forages = findByDate(date);
+         forages.stream()
+                 .collect(Collectors.groupingBy(f-> f.getItem().getCategory(),
+                         Collectors.reducing(BigDecimal.ZERO,BigDecimal::add)));
+
+         Map<Category,BigDecimal> values = new HashMap<>();
+        values.*/
+
+        return null;
+
+    }
+
+
+
+
 }
+
+
+

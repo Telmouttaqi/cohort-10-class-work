@@ -23,6 +23,8 @@ class ForageFileRepositoryTest {
     static final String TEST_DIR_PATH = "./data/forage_data_test";
     static final int FORAGE_COUNT = 54;
 
+
+
     final LocalDate date = LocalDate.of(2020, 6, 26);
 
     ForageFileRepository repository = new ForageFileRepository(TEST_DIR_PATH);

@@ -29,3 +29,8 @@ id,name,category,dollars/kilogram
 28,Tawfik,EDIBLE,36
 29,tawfik2,INEDIBLE,6
 30,Hello,MEDICINAL,3
+31,test1,EDIBLE,0
+32,test2,MEDICINAL,7500
+33,testest1,MEDICINAL,2
+34,samia,MEDICINAL,3
+35,test,MEDICINAL,2

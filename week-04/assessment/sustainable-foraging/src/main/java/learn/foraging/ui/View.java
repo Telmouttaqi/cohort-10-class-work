@@ -4,12 +4,17 @@ import learn.foraging.models.Category;
 import learn.foraging.models.Forage;
 import learn.foraging.models.Forager;
 import learn.foraging.models.Item;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
+@Component
 public class View {
 
     private final ConsoleIO io;
@@ -38,6 +43,18 @@ public class View {
         displayHeader(MainMenuOption.VIEW_FORAGES_BY_DATE.getMessage());
         return io.readLocalDate("Select a date [MM/dd/yyyy]: ");
     }
+
+    public LocalDate getReportKGPerItemDate() {
+        displayHeader(MainMenuOption.REPORT_KG_PER_ITEM.getMessage());
+        return io.readLocalDate("Select a date [MM/dd/yyyy]: ");
+    }
+
+    public LocalDate categoryValueReportDate() {
+        displayHeader(MainMenuOption.REPORT_CATEGORY_VALUE.getMessage());
+        return io.readLocalDate("Select a date [MM/dd/yyyy]: ");
+    }
+
+
 
     public String getForagerNamePrefix() {
         return io.readRequiredString("Forager last name starts with: ");
@@ -190,7 +207,67 @@ public class View {
         }
 
         for (Item item : items) {
-            io.printf("%s: %s, %s, %.2f $/kg%n", item.getId(), item.getName(), item.getCategory(), item.getDollarPerKilogram());
+            io.printf("%s: %s, %s, %.2f $/kg%n",
+                    item.getId(),
+                    item.getName(),
+                    item.getCategory(),
+                    item.getDollarPerKilogram());
         }
     }
-}
+
+
+    // Display the foragers by state.
+    public void displayForagers(List<Forager> foragers){
+
+        if(foragers == null || foragers.size() == 0 ){
+            io.println("No forager found");
+            return;
+        }
+        System.out.printf("\n%-40s%-20s%-20s%-20s\n\n","Forager Id","First Name", "Last Name","State");
+        foragers.forEach( a-> io.printf("%-40s%-20s%-20s%-20s\n",
+                a.getId(),
+                a.getFirstName(),
+                a.getLastName(),
+                a.getState()));
+    }
+
+
+
+    public Forager makeForager() {
+        Forager forager = new Forager();
+        forager.setFirstName(io.readRequiredString("Enter First Name : "));
+        forager.setLastName(io.readRequiredString("Enter Last  Name : "));
+        forager.setState(stateAbbreviations());
+        return forager;
+    }
+
+
+    public void displayKGPerItemReport(Map<Item, Double> kgPerItem) {
+        System.out.printf("\n%-20s%-20s","Item Name ","Kg");
+        for (Item item : kgPerItem.keySet()){
+            System.out.printf("\n%-20s%-20s\n\n",item.getName(),kgPerItem.get(item));
+            //System.out.println(item.getName() + " : " + kgPerItem.get(item) + " kg ");
+        }
+    }
+
+    public String stateAbbreviations(){
+        String input;
+        boolean valid;
+        do {
+            valid=true;
+
+            input = io.readRequiredString("State abbreviations [*TWO LETTER*] : ");
+
+            if(input.length()!=2){
+
+                io.println("[ERR] [*TWO LETTER*] :");
+
+                valid=false;
+            }
+        } while (!valid);
+        return input.toUpperCase();
+    }
+
+
+    }
+

@@ -9,10 +9,14 @@ import learn.foraging.models.Category;
 import learn.foraging.models.Forage;
 import learn.foraging.models.Forager;
 import learn.foraging.models.Item;
+import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
+@Component
 public class Controller {
 
     private final ForagerService foragerService;
@@ -49,25 +53,32 @@ public class Controller {
                     viewItems();
                     break;
                 case ADD_FORAGE:
+                    //addForage();
                     addForage();
                     break;
                 case ADD_FORAGER:
-                    view.displayStatus(false, "NOT IMPLEMENTED");
+                    //view.displayStatus(false, "NOT IMPLEMENTED");
+                    addForager();
                     view.enterToContinue();
                     break;
                 case ADD_ITEM:
                     addItem();
                     break;
                 case REPORT_KG_PER_ITEM:
-                    view.displayStatus(false, "NOT IMPLEMENTED");
+                    //view.displayStatus(false, "NOT IMPLEMENTED");
+                    reportKGPerItem();
                     view.enterToContinue();
                     break;
                 case REPORT_CATEGORY_VALUE:
-                    view.displayStatus(false, "NOT IMPLEMENTED");
+                    reportCategoryValue();
+                    //view.displayStatus(false, "NOT IMPLEMENTED");
                     view.enterToContinue();
                     break;
+                case VIEW_FORAGERS_BY_STATE:
+                    viewForagersByState();
+
                 case GENERATE:
-                    generate();
+                    //generate();
                     break;
             }
         } while (option != MainMenuOption.EXIT);
@@ -141,4 +152,45 @@ public class Controller {
         List<Item> items = itemService.findByCategory(category);
         return view.chooseItem(items);
     }
+
+
+
+    private void viewForagersByState(){
+        view.displayHeader(MainMenuOption.VIEW_FORAGERS_BY_STATE.getMessage());
+        String stateAbbreviations = view.stateAbbreviations();
+        List<Forager> foragers = foragerService.findByState(stateAbbreviations);
+        view.displayForagers(foragers);
+        view.enterToContinue();
+    }
+
+
+    private void addForager() throws DataException {
+        view.displayHeader(MainMenuOption.ADD_FORAGER.getMessage());
+        Forager forager = view.makeForager();
+        Result<Forager> result = foragerService.add(forager);
+        if (!result.isSuccess()) {
+            view.displayStatus(false, result.getErrorMessages());
+        } else {
+            String successMessage = String.format("Forager %s created.", result.getPayload().getId());
+            view.displayStatus(true, successMessage);
+        }
+    }
+
+
+    private void reportKGPerItem() {
+        LocalDate date = view.getReportKGPerItemDate();
+        view.displayHeader(MainMenuOption.REPORT_KG_PER_ITEM.getMessage());
+        Map <Item, Double> kgPerItem = forageService.reportKgOfEachItemOnDay(date);
+        view.displayKGPerItemReport(kgPerItem);
+        view.enterToContinue();
+    }
+
+    private void reportCategoryValue(){
+        System.out.println("Still Working on it . ");
+
+    }
+
+
+
 }
+
