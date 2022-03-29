@@ -1,17 +1,14 @@
 package learn.foraging.domain;
 
-import learn.foraging.data.DataException;
-import learn.foraging.data.ForageRepositoryDouble;
-import learn.foraging.data.ForagerRepositoryDouble;
-import learn.foraging.data.ItemRepositoryDouble;
+import learn.foraging.data.*;
 import learn.foraging.models.Category;
 import learn.foraging.models.Forage;
 import learn.foraging.models.Forager;
 import learn.foraging.models.Item;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -69,6 +66,32 @@ class ForageServiceTest {
         Result<Forage> result = service.add(forage);
         assertFalse(result.isSuccess());
     }
+
+    @Test
+    void shouldNotAddDuplicateForage() throws DataException{
+
+        Item item = ItemRepositoryDouble.ITEM;
+
+        Forage forage = new Forage();
+        forage.setDate(LocalDate.of(2020, 6, 26));
+        forage.setForager(ForagerRepositoryDouble.FORAGER);
+        forage.setItem(item);
+        forage.setKilograms(1.25);
+        Result<Forage> result = service.add(forage);
+
+        assertFalse(result.isSuccess());
+
+
+    }
+
+    @Test
+    void kilogramsOfEachItemOnOneDayReport() throws DataException {
+        LocalDate date = LocalDate.of(2020, 6, 26);
+        Map<Item, Double> report = service.reportKgOfEachItemOnDay(date);
+        assertEquals(1, report.size());
+        assertEquals(1.25, report.get(ItemRepositoryDouble.ITEM));
+    }
+
 
 
 }
