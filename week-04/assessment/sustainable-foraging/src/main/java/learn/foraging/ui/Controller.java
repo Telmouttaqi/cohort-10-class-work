@@ -186,7 +186,13 @@ public class Controller {
     }
 
     private void reportCategoryValue(){
-        System.out.println("Still Working on it . ");
+        LocalDate date = view.categoryValueReportDate();
+        view.displayHeader(MainMenuOption.REPORT_CATEGORY_VALUE.getMessage());
+        Map<Category,BigDecimal> map  =forageService.categoryValueReport(date);
+        view.displayCategoryValue(map);
+        view.enterToContinue();
+
+
 
     }
 

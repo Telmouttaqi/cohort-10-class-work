@@ -11,6 +11,7 @@ import learn.foraging.models.Item;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -176,19 +177,35 @@ public class ForageService {
                         Collectors.summingDouble(Forage::getKilograms)));
     }
 
-/*
 
 
-    // Key      ,    Value //
+
+        // Key  ,        Value //
     public Map<Category, BigDecimal> categoryValueReport(LocalDate date) {
+         List<Forage> forages = findByDate(date);
+         Map<Category, BigDecimal> map = new HashMap<>();
+         if((forages != null) || (forages.isEmpty())){
+             for(Category category :Category.values()){
+                 map.put(category,BigDecimal.ZERO);
+             }
 
+             for (Forage forage : forages) {
+                 BigDecimal dollarPerkg = forage.getItem().getDollarPerKilogram();
+                 BigDecimal kg = BigDecimal.valueOf(forage.getKilograms());
+                 BigDecimal total = dollarPerkg.multiply(kg);
+                 BigDecimal runningTotal = total.add(map.get(forage.getItem().getCategory())).setScale(2, RoundingMode.HALF_UP);
 
+                 map.put(forage.getItem().getCategory(),runningTotal);
 
+             }
+        }
+
+         return map;
     }
 
 
 
-*/
+
 
 }
 

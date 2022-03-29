@@ -244,6 +244,7 @@ public class View {
 
     public void displayKGPerItemReport(Map<Item, Double> kgPerItem) {
         System.out.printf("\n%-20s%-20s","Item Name ","Kg");
+
         for (Item item : kgPerItem.keySet()){
             System.out.printf("\n%-20s%-20s\n\n",item.getName(),kgPerItem.get(item));
             //System.out.println(item.getName() + " : " + kgPerItem.get(item) + " kg ");
@@ -268,6 +269,17 @@ public class View {
         return input.toUpperCase();
     }
 
+    public void displayCategoryValue(Map<Category,BigDecimal> map){
+        //System.out.printf("\n%-20s%-20s","Category Name ","Value");
+        System.out.printf("%-20s %-20s", "Category Name", "Value\n");
+        for(Map.Entry entry : map.entrySet()){
+            System.out.printf("\n%-20s $%-20s\n",entry.getKey(),entry.getValue());
+
+
+        }
 
     }
+
+
+}
 
