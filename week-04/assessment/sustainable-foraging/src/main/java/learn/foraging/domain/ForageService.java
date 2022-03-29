@@ -178,20 +178,20 @@ public class ForageService {
 
 
 
-
-
-
-
+    // Key      ,    Value //
     public Map<Category, BigDecimal> categoryValueReport(LocalDate date) {
-       /* List<Forage> forages = findByDate(date);
-         forages.stream()
-                 .collect(Collectors.groupingBy(f-> f.getItem().getCategory(),
-                         Collectors.reducing(BigDecimal.ZERO,BigDecimal::add)));
 
-         Map<Category,BigDecimal> values = new HashMap<>();
-        values.*/
-
-        return null;
+        List<Forage> forages = findByDate(date);
+        Map<Category,BigDecimal> values = forages.stream()
+                .filter(s->s.getItem().getCategory() != null) // check all the categories null or not
+                .collect(Collectors.groupingBy(s->s.getItem().getCategory()))// collect groupingBy categories
+                .entrySet().stream() // create a stream of a map
+                .collect(Collectors.toMap(Map.Entry::getKey, // create a new map using a key from the original map
+                        s -> s.getValue().stream() // grab values of the previous map and convert to stream
+                                .map(Forage::getValue) // replaces all the forage object and calc value in array
+                                .reduce(BigDecimal.ZERO,BigDecimal::add))); // add all the values in the keys
+        // reduce to combine .
+        return values;
 
     }
 
