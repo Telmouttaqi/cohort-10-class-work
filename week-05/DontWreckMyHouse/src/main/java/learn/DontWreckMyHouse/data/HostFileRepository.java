@@ -4,6 +4,7 @@ import learn.DontWreckMyHouse.models.Guest;
 import learn.DontWreckMyHouse.models.Host;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -18,7 +19,7 @@ public class HostFileRepository implements HostRepository {
 
     private final String filePath;
 
-    public List<Host> findAll() {
+    public List<Host> findAll() throws DataException {
         ArrayList<Host> result = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             reader.readLine(); // read header
@@ -28,14 +29,17 @@ public class HostFileRepository implements HostRepository {
                     result.add(deserialize(fields));
                 }
             }
-        }catch (IOException ex){
+        }catch (FileNotFoundException ex){
             // do nothing for now.
+        }catch (IOException ex){
+            throw new DataException(ex.getMessage(), ex);
         }
+
         return result;
     }
 
     @Override
-    public Host findHostByEmail(String hostEmail) {
+    public Host findHostByEmail(String hostEmail) throws DataException {
         return  findAll().stream()
                 .filter(i -> i.getEmail().equalsIgnoreCase(hostEmail))
                 .findFirst()
@@ -44,7 +48,7 @@ public class HostFileRepository implements HostRepository {
 
 
     @Override
-    public Host findHostById(String hostId) {
+    public Host findHostById(String hostId) throws DataException {
         return findAll().stream()
                 .filter(i -> i.getHostId().equalsIgnoreCase(hostId))
                 .findFirst()

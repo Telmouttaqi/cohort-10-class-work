@@ -14,7 +14,7 @@ class GuestFileRepositoryTest {
 
 
     @Test
-    void shouldFind1000Guest(){
+    void shouldFind1000Guest() throws DataException {
         List<Guest> actual = repository.findAll();
         assertNotNull(actual);
         assertEquals(1000,actual.size());
@@ -22,7 +22,7 @@ class GuestFileRepositoryTest {
 
 
     @Test
-    void shouldFindExistingGuestById(){
+    void shouldFindExistingGuestById() throws DataException {
 
         Guest isabel = repository.findGuestById(10);
         assertNotNull(isabel);
@@ -31,7 +31,7 @@ class GuestFileRepositoryTest {
     }
 
     @Test
-    void shouldNotFindExistingGuestById(){
+    void shouldNotFindExistingGuestById() throws DataException {
 
         Guest notExist = repository.findGuestById(5000);
         assertNull(notExist);
@@ -40,14 +40,14 @@ class GuestFileRepositoryTest {
 
 
     @Test
-    void shouldFindExistingGuestByEmail(){
+    void shouldFindExistingGuestByEmail() throws DataException {
         Guest isabel = repository.findGuestByEmail("iganter9@privacy.gov.au");
         assertNotNull(isabel);
         assertEquals("Isabel",isabel.getFirstName());
     }
 
     @Test
-    void shoutNotFindExistingGuestByEmail(){
+    void shoutNotFindExistingGuestByEmail() throws DataException {
         Guest notExist = repository.findGuestByEmail("test@test.com");
         assertNull(notExist);
 

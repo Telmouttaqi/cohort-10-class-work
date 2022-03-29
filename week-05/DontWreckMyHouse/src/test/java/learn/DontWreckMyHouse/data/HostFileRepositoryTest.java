@@ -14,7 +14,7 @@ class HostFileRepositoryTest {
     private HostFileRepository repository = new HostFileRepository("./data/hosts.csv");
 
     @Test
-    void shouldFind1001Host(){
+    void shouldFind1001Host() throws DataException {
         List<Host> actual = repository.findAll();
         assertNotNull(actual);
         assertEquals(1000,actual.size());
@@ -22,7 +22,7 @@ class HostFileRepositoryTest {
 
 
     @Test
-    void shouldFindExistingGuestById(){
+    void shouldFindExistingGuestById() throws DataException {
 
         Host Croney = repository.findHostById("e0a8112e-fd35-4054-af88-cb8448394004");
         assertNotNull(Croney);
@@ -32,7 +32,7 @@ class HostFileRepositoryTest {
 
 
     @Test
-    void shouldNotFindExistingHostById(){
+    void shouldNotFindExistingHostById() throws DataException {
 
         Host notExist = repository.findHostById("testIdHost");
         assertNull(notExist);
@@ -41,14 +41,14 @@ class HostFileRepositoryTest {
 
 
     @Test
-    void shouldFindExistingGuestByEmail(){
+    void shouldFindExistingGuestByEmail() throws DataException {
         Host Croney = repository.findHostByEmail("jcroneya@noaa.gov");
         assertNotNull(Croney);
         assertEquals("Croney",Croney.getLastName());
     }
 
     @Test
-    void shoutNotFindExistingGuestByEmail(){
+    void shoutNotFindExistingGuestByEmail() throws DataException {
         Host notExist = repository.findHostByEmail("Test@gmail.com");
         assertNull(notExist);
 

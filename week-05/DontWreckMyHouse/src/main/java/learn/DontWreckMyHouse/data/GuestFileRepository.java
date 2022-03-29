@@ -1,6 +1,7 @@
 package learn.DontWreckMyHouse.data;
 import learn.DontWreckMyHouse.models.Guest;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class GuestFileRepository implements GuestRepository{
         this.filePath = filePath;
     }
 
-    public List<Guest> findAll() {
+    public List<Guest> findAll() throws DataException {
         ArrayList<Guest> result = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             reader.readLine(); // read header
@@ -24,16 +25,19 @@ public class GuestFileRepository implements GuestRepository{
                     result.add(deserialize(fields));
                 }
             }
-        }catch (IOException ex){
+        }catch (FileNotFoundException ex){
             // do nothing for now.
+        }catch (IOException ex){
+            throw new DataException(ex.getMessage(), ex);
         }
+
         return result;
     }
 
 
 
     @Override
-    public Guest findGuestByEmail(String guestEmail) {
+    public Guest findGuestByEmail(String guestEmail) throws DataException {
         return  findAll().stream()
                 .filter(i -> i.getEmail().equalsIgnoreCase(guestEmail))
                 .findFirst()
@@ -42,7 +46,7 @@ public class GuestFileRepository implements GuestRepository{
 
 
     @Override
-    public Guest findGuestById(int guestId) {
+    public Guest findGuestById(int guestId) throws DataException {
         return findAll().stream()
                 .filter(i -> i.getGuestId() == guestId)
                 .findFirst()

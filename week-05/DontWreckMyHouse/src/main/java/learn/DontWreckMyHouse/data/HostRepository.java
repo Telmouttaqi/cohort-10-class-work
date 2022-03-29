@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface HostRepository {
 
-    List<Host> findAll();
+    List<Host> findAll() throws DataException;
 
-    Host findHostByEmail(String hostEmail);
+    Host findHostByEmail(String hostEmail) throws DataException;
 
-    Host findHostById(String hostId);
+    Host findHostById(String hostId) throws DataException;
 }
