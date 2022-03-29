@@ -161,6 +161,17 @@ from the ReservationRepository class.
 * display confirmation of the cancellations
 
 
+#Total Completion Time Estimate: 60 hours.
+
+Monday: 3 Hours.
+* Create new maven project 
+* add configuration J-unit
+* add dependencies
+* add all the models Guest, Host, Reservation getters and setters.
+* create a data layers all the models
+* I made a test to the find all method for Guest and Host 
+
+
 
 
 
