@@ -9,9 +9,9 @@ public interface GuestRepository {
 
     List<Guest> findAll();
 
-    List<Guest> findGuestById();
+    Guest findGuestByEmail(String guestEmail);
 
-    List<Guest> findGuestByEmail();
+    Guest findGuestById(int guestId);
 
 
 }

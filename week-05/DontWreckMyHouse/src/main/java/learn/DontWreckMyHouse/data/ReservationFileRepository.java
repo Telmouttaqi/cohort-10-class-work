@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ReservationFileRepository {
 
+    private static final String HEADER = "id,start_date,end_date,guest_id,total";
     private final String directory;
 
     public ReservationFileRepository(String directory) {

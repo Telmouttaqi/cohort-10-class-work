@@ -30,15 +30,25 @@ public class GuestFileRepository implements GuestRepository{
         return result;
     }
 
-    @Override
-    public List<Guest> findGuestById() {
-        return null;
-    }
+
 
     @Override
-    public List<Guest> findGuestByEmail() {
-        return null;
+    public Guest findGuestByEmail(String guestEmail) {
+        return  findAll().stream()
+                .filter(i -> i.getEmail().equalsIgnoreCase(guestEmail))
+                .findFirst()
+                .orElse(null);
     }
+
+
+    @Override
+    public Guest findGuestById(int guestId) {
+        return findAll().stream()
+                .filter(i -> i.getGuestId() == guestId)
+                .findFirst()
+                .orElse(null);
+    }
+
 
     // guest_id,first_name,last_name,email,phone,state
     private Guest deserialize(String[] fields) {

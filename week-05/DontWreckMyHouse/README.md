@@ -41,8 +41,33 @@ The application user is an accommodation administrator. They pair guests to host
 
 ##Models: 
 [ ] Guest
+
+private int guestId;
+private String firstName;
+private String lastName;
+private String email;
+private String phone;
+private String state;
+
 [ ] Host
+private String hostId;
+private String lastName;
+private String email;
+private String phone;
+private String address;
+private String city;
+private String state;
+private String postalCode;
+private BigDecimal standardRate;
+private BigDecimal weekEndRate;
+
 [ ] Reservation
+
+private int reservationId;
+private LocalDate startDate;
+private LocalDate endDate;
+private Guest guest;
+private BigDecimal total;
 
 ## UI: 
 [ ] Console IO 

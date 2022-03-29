@@ -9,7 +9,7 @@ public class Reservation {
     private int reservationId;
     private LocalDate startDate;
     private LocalDate endDate;
-    // guestid
+    private Guest guest;
     private BigDecimal total;
 
     public int getReservationId() {

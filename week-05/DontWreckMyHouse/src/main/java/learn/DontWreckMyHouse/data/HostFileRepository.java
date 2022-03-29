@@ -35,14 +35,22 @@ public class HostFileRepository implements HostRepository {
     }
 
     @Override
-    public List<Host> findGuestById() {
-        return null;
+    public Host findHostByEmail(String hostEmail) {
+        return  findAll().stream()
+                .filter(i -> i.getEmail().equalsIgnoreCase(hostEmail))
+                .findFirst()
+                .orElse(null);
     }
 
+
     @Override
-    public List<Host> findGuestByEmail() {
-        return null;
+    public Host findHostById(String hostId) {
+        return findAll().stream()
+                .filter(i -> i.getHostId().equalsIgnoreCase(hostId))
+                .findFirst()
+                .orElse(null);
     }
+
 
     // id,last_name,email,phone,address,city,state,postal_code,standard_rate,weekend_rate
     private Host deserialize(String[] fields) {
@@ -59,5 +67,8 @@ public class HostFileRepository implements HostRepository {
         result.setWeekEndRate(BigDecimal.valueOf(Double.parseDouble(fields[9])));
         return result;
     }
+
+
+
 
 }
