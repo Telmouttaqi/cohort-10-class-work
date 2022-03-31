@@ -1,5 +1,7 @@
 package learn.DontWreckMyHouse.data;
 import learn.DontWreckMyHouse.models.Guest;
+import org.springframework.stereotype.Repository;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Repository
 public class GuestFileRepository implements GuestRepository{
 
     private final String filePath;

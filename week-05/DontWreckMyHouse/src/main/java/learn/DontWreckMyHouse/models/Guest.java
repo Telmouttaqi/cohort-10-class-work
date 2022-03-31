@@ -9,6 +9,20 @@ public class Guest {
     private String phone;
     private String state;
 
+    public Guest(int guestId, String firstName, String lastName, String email, String phone, String state) {
+        this.guestId = guestId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.state = state;
+    }
+
+    public Guest() {
+    }
+
+
+
     public int getGuestId() {
         return guestId;
     }

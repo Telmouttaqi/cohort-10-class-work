@@ -1,7 +1,8 @@
 package learn.DontWreckMyHouse.domain;
 
-public class Result <T> extends Response{
+import java.util.ArrayList;
 
+public class Result<T> extends Response {
 
     private T payload;
 
@@ -12,5 +13,6 @@ public class Result <T> extends Response{
     public void setPayload(T payload) {
         this.payload = payload;
     }
+
 
 }

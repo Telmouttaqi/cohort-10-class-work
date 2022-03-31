@@ -1,6 +1,5 @@
 package learn.DontWreckMyHouse.data;
 
-import learn.DontWreckMyHouse.models.Guest;
 import learn.DontWreckMyHouse.models.Host;
 
 import java.io.BufferedReader;
@@ -12,12 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HostFileRepository implements HostRepository {
+    private final String filePath;
+
+
 
     public HostFileRepository(String filePath) {
         this.filePath = filePath;
+
     }
 
-    private final String filePath;
+    //private final String filePath;
 
     public List<Host> findAll() throws DataException {
         ArrayList<Host> result = new ArrayList<>();

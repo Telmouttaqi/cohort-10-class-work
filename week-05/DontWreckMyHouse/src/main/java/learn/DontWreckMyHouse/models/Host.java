@@ -14,6 +14,25 @@ public class Host {
     private BigDecimal standardRate;
     private BigDecimal weekEndRate;
 
+    public Host(String hostId, String lastName, String email, String phone,
+                String address, String city, String state, String postalCode,
+                BigDecimal standardRate, BigDecimal weekEndRate) {
+        this.hostId = hostId;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.postalCode = postalCode;
+        this.standardRate = standardRate;
+        this.weekEndRate = weekEndRate;
+    }
+
+    public Host() {
+    }
+
+
     public String getHostId() {
         return hostId;
     }
