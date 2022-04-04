@@ -18,7 +18,7 @@ public class GuestFileRepository implements GuestRepository{
 
     private final String filePath;
 
-    public GuestFileRepository(@Value("${guestsFileLocation}")String filePath) { this.filePath = filePath; }
+    public GuestFileRepository(@Value("${guestsFile}")String filePath) { this.filePath = filePath; }
 
     public List<Guest> findAll() throws DataException {
         ArrayList<Guest> result = new ArrayList<>();

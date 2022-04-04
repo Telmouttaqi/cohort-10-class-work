@@ -19,7 +19,7 @@ public class ReservationFileRepository implements ReservationRepository{
     private final String directory;
 
 
-    public ReservationFileRepository(@Value("${reservationsLocation}")String directory) {this.directory = directory;}
+    public ReservationFileRepository(@Value("${reservations}")String directory) {this.directory = directory;}
 
     public List<Reservation> findAll(Host host) throws DataException {
 

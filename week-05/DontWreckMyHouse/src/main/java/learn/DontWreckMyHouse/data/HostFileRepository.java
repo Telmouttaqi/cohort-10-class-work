@@ -19,7 +19,7 @@ public class HostFileRepository implements HostRepository {
 
 
 
-     public HostFileRepository(@Value("${hostsFileLocation}")String filePath) { this.filePath = filePath; }
+     public HostFileRepository(@Value("${hostsFile}")String filePath) { this.filePath = filePath; }
 
     //private final String filePath;
 
