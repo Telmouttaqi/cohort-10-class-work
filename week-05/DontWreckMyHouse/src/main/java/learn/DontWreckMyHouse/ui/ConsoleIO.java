@@ -1,11 +1,14 @@
 package learn.DontWreckMyHouse.ui;
 
+import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
+@Component
 public class ConsoleIO {
     private static final String INVALID_NUMBER
             = "[INVALID] Enter a valid number.";
@@ -16,7 +19,9 @@ public class ConsoleIO {
     private static final String INVALID_DATE
             = "[INVALID] Enter a date in MM/dd/yyyy format.";
 
+
     private final Scanner scanner = new Scanner(System.in);
+
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
     public void print(String message) {
@@ -129,4 +134,8 @@ public class ConsoleIO {
             println(String.format(NUMBER_OUT_OF_RANGE, min, max));
         }
     }
+
+
+
+
 }

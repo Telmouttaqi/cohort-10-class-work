@@ -11,4 +11,7 @@ public interface HostRepository {
     Host findHostByEmail(String hostEmail) throws DataException;
 
     Host findHostById(String hostId) throws DataException;
+
+
+
 }

@@ -9,12 +9,30 @@ import learn.DontWreckMyHouse.domain.ReservationService;
 import learn.DontWreckMyHouse.ui.ConsoleIO;
 import learn.DontWreckMyHouse.ui.Controller;
 import learn.DontWreckMyHouse.ui.View;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
 
+@ComponentScan
+@PropertySource("classpath:data.properties")
 public class App {
 
     public static void main(String[] args) {
 
-        ConsoleIO io = new ConsoleIO();
+
+            ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
+
+            Controller controller = context.getBean(Controller.class);
+
+            controller.run();
+        }
+ }
+
+
+
+
+    /*    ConsoleIO io = new ConsoleIO();
         View view = new View(io);
 
         ReservationFileRepository reservationFileRepository = new ReservationFileRepository("./data/reservations");
@@ -29,7 +47,9 @@ public class App {
 
 
         Controller controller = new Controller(guestService,hostService,reservationService,view);
-        controller.run();
+        controller.run();*/
 
-    }
-}
+
+
+
+

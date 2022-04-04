@@ -1,3 +1,4 @@
+
 package learn.DontWreckMyHouse.data;
 
 
@@ -43,28 +44,7 @@ class ReservationFileRepositoryTest {
         Files.copy(seedPath, testPath, StandardCopyOption.REPLACE_EXISTING);
     }
 
-    @Test
-    void ShouldFindByHostId() throws DataException {
 
-        List<Reservation> reservations = repository.findAll(hostId);
-        assertEquals(13, reservations.size());
-
-    }
-
-    @Test
-    void shouldHostIdReturnCorrectReservationData() throws DataException {
-        List <Reservation> all = repository.findAll(hostId);
-        // get the first guest from the list ID // 845
-        assertEquals(all.get(0).getGuest().getGuestId(),845);
-    }
-
-
-    @Test
-    void NotExistingData() throws DataException {
-        List <Reservation> NotExistData = repository.findAll("test@test.com");
-        // get the first guest from the list ID // 845
-        assertEquals(0,NotExistData.size());
-    }
 
 
     @Test
@@ -98,29 +78,7 @@ class ReservationFileRepositoryTest {
 
     }
 
-    @Test
-    void shouldUpdate() throws DataException {
-        Host host = new Host();
-        host.setHostId(hostId);
 
-        Guest guest = new Guest();
-        guest.setGuestId(6);
-        Reservation reservation = new Reservation();
-        reservation.setReservationId(9);
-        reservation.setStartDate(LocalDate.of(2022, 9, 8));
-        reservation.setEndDate(LocalDate.of(2022, 9, 15));
-        reservation.setGuest(guest);
-        reservation.setHost(host);
-        reservation.setTotal(new BigDecimal("2500"));
-
-        boolean pass = repository.update(reservation);
-
-        assertTrue(pass);
-        assertNotNull(reservation);
-        assertEquals(13,repository.findAll(hostId).size());
-
-
-    }
 
     @Test
     void shouldNotUpdateNotExistingReservation() throws DataException {
@@ -143,46 +101,17 @@ class ReservationFileRepositoryTest {
 
     }
 
-    @Test
-    void shouldDeleteReservation() throws DataException {
-        Host host = new Host();
-        host.setHostId(hostId);
 
-        Reservation reservation = new Reservation();
 
-        Guest guest = new Guest();
-        guest.setGuestId(3);
-        reservation.setReservationId(2);
-        reservation.setGuest(guest);
-        reservation.setHost(host);
+    void shouldDeleteExistig() throws DataException {
 
-        boolean pass = repository.delete(reservation);
-        assertTrue(pass);
-    }
 
-    @Test
-     void shouldNotDeleteReservation() throws DataException {
 
-        Host host = new Host();
-        host.setHostId(hostId);
 
-        Reservation reservation = new Reservation();
-
-        Guest guest = new Guest();
-        guest.setGuestId(6);
-        reservation.setReservationId(56);
-        reservation.setGuest(guest);
-        reservation.setHost(host);
-
-        boolean pass = repository.delete(reservation);
-        assertFalse(pass);
 
     }
-    @Test
-    void serializeGetCorrectExistingTotal () throws DataException {
-        List<Reservation> all = repository.findAll(hostId);
 
-        assertEquals(2045.0,all.get(4).getTotal().doubleValue());
+    void shouldNotDeleteMissing() throws DataException {
 
     }
 

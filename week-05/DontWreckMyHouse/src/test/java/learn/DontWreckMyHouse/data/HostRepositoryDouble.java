@@ -32,11 +32,9 @@ public class HostRepositoryDouble implements HostRepository{
 
     @Override
     public Host findHostByEmail(String hostEmail) throws DataException {
-        return hosts.stream()
-                .filter(h->h.getEmail().equalsIgnoreCase(hostEmail))
-                .findFirst()
-                .orElse(null);
+        return null;
     }
+
 
     @Override
     public Host findHostById(String hostId) throws DataException {
@@ -45,4 +43,6 @@ public class HostRepositoryDouble implements HostRepository{
                 .findFirst()
                 .orElse(null);
     }
+
+
 }

@@ -1,5 +1,6 @@
 package learn.DontWreckMyHouse.data;
 import learn.DontWreckMyHouse.models.Guest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.io.BufferedReader;
@@ -8,6 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 
 @Repository
@@ -15,9 +18,7 @@ public class GuestFileRepository implements GuestRepository{
 
     private final String filePath;
 
-    public GuestFileRepository(String filePath) {
-        this.filePath = filePath;
-    }
+    public GuestFileRepository(@Value("${guestsFileLocation}")String filePath) { this.filePath = filePath; }
 
     public List<Guest> findAll() throws DataException {
         ArrayList<Guest> result = new ArrayList<>();
@@ -56,6 +57,8 @@ public class GuestFileRepository implements GuestRepository{
                 .findFirst()
                 .orElse(null);
     }
+
+
 
 
     // guest_id,first_name,last_name,email,phone,state

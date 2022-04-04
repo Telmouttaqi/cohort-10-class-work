@@ -21,11 +21,6 @@ class HostServiceTest {
         assertEquals(2,result.size());
     }
 
-    @Test
-    void shouldFindByEmail() throws DataException{
-        Host result = service.findHostByEmail("test@gmail.com");
-        assertEquals("27409",result.getPostalCode());
-    }
 
 
     @Test

@@ -1,6 +1,7 @@
 package learn.DontWreckMyHouse.models;
 
 import java.math.BigDecimal;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class Reservation {
@@ -65,4 +66,7 @@ public class Reservation {
     public void setTotal(BigDecimal total) {
         this.total = total;
     }
+
+
+
 }

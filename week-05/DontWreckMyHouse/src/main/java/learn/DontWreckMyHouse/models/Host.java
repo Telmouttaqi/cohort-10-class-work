@@ -3,6 +3,7 @@ package learn.DontWreckMyHouse.models;
 import java.math.BigDecimal;
 
 public class Host {
+
     private String hostId;
     private String lastName;
     private String email;

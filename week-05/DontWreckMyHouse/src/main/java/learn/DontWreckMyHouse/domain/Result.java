@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Result<T> extends Response {
 
+    private ArrayList<String> messages = new ArrayList<>();
+
     private T payload;
 
     public T getPayload() {

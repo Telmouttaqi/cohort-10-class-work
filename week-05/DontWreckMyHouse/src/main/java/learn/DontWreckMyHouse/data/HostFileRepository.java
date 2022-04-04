@@ -1,6 +1,8 @@
 package learn.DontWreckMyHouse.data;
 
 import learn.DontWreckMyHouse.models.Host;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,16 +11,15 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Locale;
+import java.util.stream.Collectors;
+@Repository
 public class HostFileRepository implements HostRepository {
     private final String filePath;
 
 
 
-    public HostFileRepository(String filePath) {
-        this.filePath = filePath;
-
-    }
+     public HostFileRepository(@Value("${hostsFileLocation}")String filePath) { this.filePath = filePath; }
 
     //private final String filePath;
 
@@ -41,7 +42,9 @@ public class HostFileRepository implements HostRepository {
         return result;
     }
 
-    @Override
+
+
+   @Override
     public Host findHostByEmail(String hostEmail) throws DataException {
         return  findAll().stream()
                 .filter(i -> i.getEmail().equalsIgnoreCase(hostEmail))
@@ -57,6 +60,8 @@ public class HostFileRepository implements HostRepository {
                 .findFirst()
                 .orElse(null);
     }
+
+
 
 
     // id,last_name,email,phone,address,city,state,postal_code,standard_rate,weekend_rate
