@@ -104,20 +104,18 @@ public class View {
         reservation.setHost(host);
         reservation.setStartDate(io.readLocalDate("Start (MM/dd/yyyy) : "));
         reservation.setEndDate(io.readLocalDate("End (MM/dd/yyyy) : "));
-        //reservation.setTotal(new BigDecimal(0));
-        //reservation.setTotal();
         return reservation;
     }
 
     public Reservation editReservation(Guest guest, Host host) {
         Reservation reservation = new Reservation();
-        //System.out.println(reservation.getReservationId());
+
         reservation.setGuest(guest);
         reservation.setHost(host);
-        //System.out.println(reservation.getStartDate());
+
         reservation.setStartDate(io.readLocalDate("Start (MM/dd/yyyy) : "));
         reservation.setEndDate(io.readLocalDate("End (MM/dd/yyyy) : "));
-        reservation.setTotal(new BigDecimal(0));
+
         return reservation;
     }
     public Reservation cancelReservation(Guest guest,Host host) {
