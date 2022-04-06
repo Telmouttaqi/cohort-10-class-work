@@ -62,7 +62,7 @@ public class ReservationService {
 
     public Result<Reservation> update(Reservation reservation) throws DataException {
 
-        Result<Reservation>  result = validateNull(reservation);
+        Result<Reservation>  result = new Result<>(); //validateNull(reservation);
         if(!result.isSuccess()) {
             return result;
         }
@@ -81,6 +81,7 @@ public class ReservationService {
     public Result<Reservation> delete(Reservation reservation, int reservationId) throws DataException {
 
         Result<Reservation>  result = new Result<>();
+
 
         if(!reservationRepository.delete(reservation,reservationId)){
             result.addErrorMessage("ERROR!");

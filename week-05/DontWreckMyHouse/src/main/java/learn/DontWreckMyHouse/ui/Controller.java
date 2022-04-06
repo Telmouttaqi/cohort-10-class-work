@@ -72,6 +72,7 @@ public class Controller {
     }
 
     private void viewReservationForHost() throws DataException {
+
         view.displayHeader(MainMenuOption.VIEW_RESERVATIONS_FOR_HOST.getMessage());
         String hostEmail = view.getHostEmail();
         Host host = hostService.findHostByEmail(hostEmail);
@@ -97,6 +98,7 @@ public class Controller {
 
         if (host == null) {
             System.out.println("Host not found.");
+            return;
         }
 
         List<Reservation> reservations = reservationService.findByHost(host);
@@ -139,8 +141,7 @@ public class Controller {
 
     public void editReservation() throws DataException {
         Scanner console = new Scanner(System.in);
-        view.displayHeader(MainMenuOption.ADD_RESERVATION.getMessage());
-
+        view.displayHeader(MainMenuOption.EDIT_RESERVATION.getMessage());
         Guest guest = getGuest();
         if (guest == null) {
             System.out.println("Guess Not found.");
@@ -150,23 +151,26 @@ public class Controller {
         Host host = getHost();
         if (host == null) {
             System.out.println("Host not found.");
+            return;
         }
 
         List<Reservation> reservations = reservationService.findByHost(host);
-        view.displayForEditing(reservations, guest);
-        System.out.print("Reservation ID : ");
-        int inputReservation = Integer.parseInt(console.nextLine());
-        if(inputReservation < 0 ) {
-            System.out.println("Sorry try again out of the range.");
+        view.displayForEditing(reservations);
+        if (reservations == null || reservations.isEmpty()) {
             return;
         }
-        Reservation reservation = view.editReservation(guest, host);
+        Reservation reservation = view.ediitReservation(reservations,host);
         reservation.setTotal(calculateTotal(reservation.getStartDate(),reservation.getEndDate(),host));
-        view.confirmation(reservation);
+        System.out.println("Summary");
+        System.out.println("=======");
+        System.out.println("Start : " + reservation.getStartDate());
+        System.out.println("End: " + reservation.getEndDate());
+        System.out.println("Total: $" + reservation.getTotal());
+        System.out.println("Is This Okay? [Y/N]");
         String yesOrNo = console.nextLine();
         if (yesOrNo.equalsIgnoreCase("y")) {
 
-            reservation.setReservationId(inputReservation);
+            //reservation.setReservationId(inputReservation);
             Result<Reservation> result = reservationService.update(reservation);
             if (!result.isSuccess()) {
                 view.displayStatus(false, result.getErrorMessages());
@@ -180,31 +184,37 @@ public class Controller {
             System.out.println("Ok try a different days to get a cheap price. ");
         }
     }
+    // host email  : pchampleycu@businessweek.com
+    // guest email : mtattersfield5d@auda.org.au
+
 
     public void cancelReservation() throws DataException {
-
         Scanner console = new Scanner(System.in);
         view.displayHeader(MainMenuOption.CANCEL_RESERVATION.getMessage());
-
         Guest guest = getGuest();
         if (guest == null) {
             System.out.println("Guess Not found.");
             return;
         }
+
         Host host = getHost();
         if (host == null) {
             System.out.println("Host not found.");
+            return;
         }
-
         List<Reservation> reservations = reservationService.findByHost(host);
+        view.displayForEditing(reservations);
 
-        view.displayForEditing(reservations, guest);
+        if (reservations == null || reservations.isEmpty()) {
+            return;
+        }
         System.out.print("Reservation ID : ");
         int inputReservation = Integer.parseInt(console.nextLine());
         System.out.println(inputReservation);
 
         Reservation reservation = view.cancelReservation(guest,host);
-        System.out.println("Are you sure you would like to delete Reservation ID: "+inputReservation+"[Y/N]");
+
+        System.out.println("Are you sure you would like to delete Reservation ID: " +inputReservation+ "[Y/N]");
         String yesOrNo = console.nextLine();
         if (yesOrNo.equalsIgnoreCase("y")) {
             reservation.setReservationId(inputReservation);

@@ -105,7 +105,7 @@ public class ConsoleIO {
 
     public LocalDate readLocalDate(String prompt) {
         while (true) {
-            String input = readRequiredString(prompt);
+            String input = readString(prompt);
             try {
                 return LocalDate.parse(input, formatter);
             } catch (DateTimeParseException ex) {
@@ -113,6 +113,30 @@ public class ConsoleIO {
             }
         }
     }
+
+    public LocalDate readLocalDate2(String prompt, boolean required) {
+        String input;
+        while (true) {
+            if (required) {
+                input = readRequiredString(prompt);
+            } else {
+                input = readString(prompt);
+                if (input.isBlank()) {
+                    return null;
+                }
+            }
+            try {
+                return LocalDate.parse(input, formatter);
+            } catch (DateTimeParseException ex) {
+                println(INVALID_DATE);
+            }
+        }
+    }
+
+
+
+
+
 
     public BigDecimal readBigDecimal(String prompt) {
         while (true) {
